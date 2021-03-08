@@ -1,3 +1,0 @@
-C:/Users/djnic/git/obj-courier/cmake-build-debug/CMakeFiles/obj_courier.dir
-C:/Users/djnic/git/obj-courier/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/djnic/git/obj-courier/cmake-build-debug/CMakeFiles/rebuild_cache.dir
