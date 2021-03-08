@@ -6,8 +6,22 @@
 #define OBJ_COURIER_TRIP_H
 
 
-class Trip {
+#include <vector>
+#include "Edge.h"
 
+class Trip {
+private:
+    std::vector<Edge> edges;
+    double summaryCost;
+
+public:
+    const std::vector<Edge> &getEdges() const;
+
+    void setEdges(const std::vector<Edge> &edges);
+
+    double getSummaryCost() const;
+
+    void setSummaryCost(double summaryCost);
 };
 
 

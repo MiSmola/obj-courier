@@ -6,8 +6,26 @@
 #define OBJ_COURIER_GRAPH_H
 
 
-class Graph {
+#include "Edge.h"
+#include <vector>
 
+class Graph {
+private:
+    int size;
+    std::vector<Edge> edges;
+
+public:
+    Graph();
+
+    void addEdge(Edge edge);
+
+    int getSize() const;
+
+    void setSize(int size);
+
+    const std::vector<Edge> &getEdges() const;
+
+    void setEdges(const std::vector<Edge> &edges);
 };
 
 
