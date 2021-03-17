@@ -16,11 +16,15 @@ void Graph::setSize(int size) {
     Graph::size = size;
 }
 
-const std::vector<Edge> &Graph::getEdges() const {
+std::vector<Edge> Graph::getEdges() {
     return edges;
 }
 
 void Graph::setEdges(const std::vector<Edge> &edges) {
     Graph::edges = edges;
+}
+
+Graph::Graph() {
+
 }
 

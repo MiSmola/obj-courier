@@ -27,7 +27,7 @@ public:
 
     void setSize(int size);
 
-    const Graph &getMap() const;
+    Graph &getMap();
 
     void setMap(const Graph &map);
 };

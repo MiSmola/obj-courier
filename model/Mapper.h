@@ -6,8 +6,16 @@
 #define OBJ_COURIER_MAPPER_H
 
 
-class Mapper {
+#include <iostream>
+#include "datastructures/Routes.h"
+#include "datastructures/Trip.h"
+#include "datastructures/Graph.h"
 
+class Mapper {
+public:
+    Routes mapFileToRoutes(std::string fileName);
+
+    std::string mapTripToFile(Trip trip, std::string resultFilePath);
 };
 
 
