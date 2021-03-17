@@ -26,22 +26,37 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
                 std::vector<std::string> strs = StringUtils::split(line, ':', size); //tab after first split "1-2 4.5"
                 int direction, clientFrom, clientTo; // temporary direction variable
                 bool containsRightArrow = strs[0].find("->") != std::string::npos,
-                        containsLeftArrow = strs[0].find("<-") != std::string::npos;
+                        containsLeftArrow = strs[0].find("<-") != std::string::npos,
+                        containsBidirectionalArrow = strs[0].find("-") != std::string::npos;
                 if (containsRightArrow || containsLeftArrow) {
                     if (containsRightArrow) {                                                      // condition ->
                         direction = 1;
-                        clientFrom = std::stoi(StringUtils::split(strs[0], "->", size)[0]);
-                        clientTo = std::stoi(StringUtils::split(strs[0], "->", size)[1]);
+                        try {
+                            clientFrom = std::stoi(StringUtils::split(strs[0], "->", size)[0]);
+                            clientTo = std::stoi(StringUtils::split(strs[0], "->", size)[1]);
+                        } catch (std::exception &e) {
+                            throw -1;
+                        }
                     }
                     if (containsLeftArrow) {                                                      // condition <-
                         direction = 2;
-                        clientFrom = std::stoi(StringUtils::split(strs[0], "<-", size)[0]);
-                        clientTo = std::stoi(StringUtils::split(strs[0], "<-", size)[1]);
+                        try {
+                            clientFrom = std::stoi(StringUtils::split(strs[0], "<-", size)[0]);
+                            clientTo = std::stoi(StringUtils::split(strs[0], "<-", size)[1]);
+                        } catch (std::exception &e) {
+                            throw -1;
+                        }
+                    }
+                } else if (containsBidirectionalArrow) {
+                    direction = 0;
+                    try {
+                        clientFrom = std::stoi(StringUtils::split(strs[0], '-', size)[0]);   // condition -
+                        clientTo = std::stoi(StringUtils::split(strs[0], '-', size)[1]);
+                    } catch (std::exception &e) {
+                        throw -1;
                     }
                 } else {
-                    direction = 0;
-                    clientFrom = std::stoi(StringUtils::split(strs[0], '-', size)[0]);   // condition -
-                    clientTo = std::stoi(StringUtils::split(strs[0], '-', size)[1]);
+                    throw -2;
                 }
 
                 double weight = std::stod(strs[1]);
