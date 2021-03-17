@@ -24,7 +24,7 @@ void Routes::setSize(int size) {
     Routes::size = size;
 }
 
-const Graph &Routes::getMap() const {
+Graph &Routes::getMap() {
     return map;
 }
 

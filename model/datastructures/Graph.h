@@ -12,9 +12,11 @@
 class Graph {
 private:
     int size;
-    std::vector<Edge> edges;
+
 
 public:
+    std::vector<Edge> edges = {};
+
     Graph();
 
     void addEdge(Edge edge);
@@ -23,7 +25,7 @@ public:
 
     void setSize(int size);
 
-    const std::vector<Edge> &getEdges() const;
+    std::vector<Edge> getEdges();
 
     void setEdges(const std::vector<Edge> &edges);
 };
