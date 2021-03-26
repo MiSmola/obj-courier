@@ -17,7 +17,7 @@ std::vector<std::string> StringUtils::split(std::string str, char delim, int &ou
     outSize = findAll(str, delim);
     if (outSize == 0)
         return {};
-    std::vector <std::string> out;
+    std::vector<std::string> out;
     for (int index = 0, start = 0, find = 0; index < outSize; index++) {
         find = str.find(delim, start);
         if (find < 0 || find < start) {
@@ -42,7 +42,7 @@ int StringUtils::findAll(std::string str, std::string delim) {
 
 std::vector<std::string> StringUtils::split(std::string str, std::string delim, int &outSize) {
     outSize = findAll(str, delim);
-    std::vector <std::string> out;
+    std::vector<std::string> out;
     if (outSize == 0)
         return {};
     size_t pos = str.find(delim);

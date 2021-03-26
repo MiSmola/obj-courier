@@ -32,6 +32,7 @@ public:
 
     void setDirection(int direction);
 
+    Edge();
 };
 
 

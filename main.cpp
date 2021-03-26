@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "model/Mapper.h"
+#include "model/Algorithm.h"
 
 int main() {
 //    try{
@@ -10,12 +11,16 @@ int main() {
 //    }
 
     Mapper *mapper = new Mapper();
+    Algorithm *algorithm = new Algorithm();
     try {
         Routes routes = mapper->mapFileToRoutes(
                 "D://Studies//Programming//Courier_project//testFiles//doubleDigits.txt");
-    } catch (int e){
-        if(e == -1) std::cout << "Nieprawidlowe dane (stoi)";
-        if(e == -2) std::cout << "Nieokreslony kierunek";
+        Trip trip = algorithm->generateTrip(routes, *routes.getClients().begin(),
+                                            algorithm->generateConnectionArray(routes));
+
+    } catch (int e) {
+        if (e == -1) std::cout << "Nieprawidlowe dane (stoi)";
+        if (e == -2) std::cout << "Nieokreslony kierunek";
     }
 //    for (int i = 0; i < 3; i++) {
 //        std::cout << routes.getMap().edges[i].getClientA() << std::endl;
