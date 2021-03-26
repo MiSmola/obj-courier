@@ -39,4 +39,6 @@ void Edge::setDirection(int direction) {
     Edge::direction = direction;
 }
 
+Edge::Edge() {}
+
 

@@ -19,3 +19,7 @@ double Trip::getSummaryCost() const {
 void Trip::setSummaryCost(double summaryCost) {
     Trip::summaryCost = summaryCost;
 }
+
+Trip::Trip(std::vector<Edge> vector, double d) {
+
+}

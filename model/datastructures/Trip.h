@@ -22,6 +22,8 @@ public:
     double getSummaryCost() const;
 
     void setSummaryCost(double summaryCost);
+
+    Trip(std::vector<Edge> vector, double d);
 };
 
 
