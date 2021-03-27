@@ -87,9 +87,10 @@ std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath) {
     std::string tripList;
     std::ofstream file;
     file.open(resultFilePath, std::ios_base::app);
-    if(file.is_open()){
-        for(int i=0; i<trip.getEdges().size(); i++){
-            tripList += (std::to_string(trip.getEdges()[i].getClientA()) + "->" + std::to_string(trip.getEdges()[i].getClientB()) + "\n");
+    if (file.is_open()) {
+        for (int i = 0; i < trip.getEdges().size(); i++) {
+            tripList += (std::to_string(trip.getEdges()[i].getClientA()) + "->" +
+                         std::to_string(trip.getEdges()[i].getClientB()) + "\n");
         }
         tripList += "Journey cost: " + std::to_string(trip.getSummaryCost());
         file << tripList;
