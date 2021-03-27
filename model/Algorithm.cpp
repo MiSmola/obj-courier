@@ -160,6 +160,6 @@ Trip Algorithm::findTheCheapestTrip(std::vector<std::vector<Edge>> trips) {
             theCheapestTrip = trips.at(tripNo);
         }
     }
-    Trip t{theCheapestTrip, theCheapestTripSummaryCost};
+    Trip t(theCheapestTrip, theCheapestTripSummaryCost);
     return t;
 }

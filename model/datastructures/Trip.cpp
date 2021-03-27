@@ -21,5 +21,8 @@ void Trip::setSummaryCost(double summaryCost) {
 }
 
 Trip::Trip(std::vector<Edge> vector, double d) {
-
+    this->edges = vector;
+    this->summaryCost = d;
 }
+
+

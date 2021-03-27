@@ -84,5 +84,18 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
 }
 
 std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath) {
-    return " ";
+    std::string tripList;
+    std::ofstream file;
+    file.open(resultFilePath, std::ios_base::app);
+    if(file.is_open()){
+        for(int i=0; i<trip.getEdges().size(); i++){
+            tripList += (std::to_string(trip.getEdges()[i].getClientA()) + "->" + std::to_string(trip.getEdges()[i].getClientB()) + "\n");
+        }
+        tripList += "Journey cost: " + std::to_string(trip.getSummaryCost());
+        file << tripList;
+        file.close();
+    } else {
+        std::cerr << "Error opening result file!" << std::endl;
+    }
+    return resultFilePath;
 }
