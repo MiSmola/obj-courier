@@ -17,6 +17,7 @@ int main() {
                 "D://Studies//Programming//Courier_project//testFiles//doubleDigits.txt");
         Trip trip = algorithm->generateTrip(routes, *routes.getClients().begin(),
                                             algorithm->generateConnectionArray(routes));
+        mapper->mapTripToFile(trip, "D://Studies//Programming//Courier_project//testFiles//resultobj.txt");
 
     } catch (int e) {
         if (e == -1) std::cout << "Nieprawidlowe dane (stoi)";
