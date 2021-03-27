@@ -8,9 +8,13 @@
 
 #include <set>
 #include <vector>
+#include <string>
 
 class Utils {
 public:
+
+    std::vector<std::string> fetchParametersAndPopulateInputFields(int argc, char *argv[]);
+
     static std::vector<int> convertIntSetToVector(std::set<int> set);
 
     static std::vector<int> convertIntSetToVectorWithBeginValue(std::vector<int> intVector, int value);
