@@ -5,8 +5,18 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 #include "Mapper.h"
 #include "StringUtils.h"
+#include "Params.h"
+
+
+using std::chrono::system_clock;
+std::time_t tt = system_clock::to_time_t(system_clock::now());
+struct std::tm *ptm = std::localtime(&tt);
 
 Routes Mapper::mapFileToRoutes(std::string fileName) {
     std::ifstream file(fileName);
@@ -85,6 +95,19 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
 
 std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath) {
     std::string tripList;
+    Params params = Params();
+    //FIXME Uncomment
+    //if(!Params::ccfgMap.begin()->second == "true"){
+    for (int i = 0; i < 4; i++) {
+        resultFilePath.pop_back();
+    }
+    std::ostringstream oss;
+    oss << std::put_time(ptm, "%F_%X");
+    resultFilePath += oss.str() + ".txt";
+    //}
+
+
+//    std::cout << "Now (local time): " << std::put_time(ptm,"%F_%X") << '\n';
     std::ofstream file;
     file.open(resultFilePath, std::ios_base::app);
     if (file.is_open()) {

@@ -7,6 +7,7 @@
 #include "../model/Algorithm.h"
 #include "../model/Utils.h"
 #include "../view/View.h"
+#include "../model/Params.h"
 
 void Controller::execute(int argc, char **argv) {
     Mapper *mapper = new Mapper();
@@ -20,6 +21,8 @@ void Controller::execute(int argc, char **argv) {
         std::string fileName = utils->fetchParametersAndPopulateInputFields(argc, argv)[0],
                 resultFileName = utils->fetchParametersAndPopulateInputFields(argc, argv)[1];
         if (fileName != "" && resultFileName != "") {
+            //FIXME Uncomment
+            //Params::loadParameters();
             Routes routes = mapper->mapFileToRoutes(fileName);
             Trip trip = algorithm->generateTrip(routes, *routes.getClients().begin(),
                                                 algorithm->generateConnectionArray(routes));
