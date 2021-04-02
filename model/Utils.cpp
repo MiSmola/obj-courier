@@ -23,13 +23,14 @@ std::vector<int> Utils::convertIntSetToVectorWithBeginValue(std::vector<int> int
 }
 
 std::vector<std::string> Utils::fetchParametersAndPopulateInputFields(int argc, char **argv) {
-    std::vector<std::string> result(3);
-    if (argc == 5 || argc == 2 || argc == 6) {
+    std::vector<std::string> result(4);
+    if (argc == 5 || argc == 2 || argc == 6 || argc == 7) {
         for (int i = 1; i < argc; i++) {
             std::string arg = argv[i];
             if (arg == "-i") result[0] = argv[i + 1];
             else if (arg == "-o") result[1] = argv[i + 1];
             else if (arg == "-h") result[2] = argv[i];
+            else if (arg == "-m") result[3] = argv[i];
         }
     } else {
         throw -2;
