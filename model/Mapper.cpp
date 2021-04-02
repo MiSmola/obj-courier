@@ -12,6 +12,7 @@
 #include "Mapper.h"
 #include "StringUtils.h"
 #include "Params.h"
+#include "Utils.h"
 
 
 using std::chrono::system_clock;
@@ -93,21 +94,23 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
     return routes;
 }
 
-std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath) {
+std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber) {
     std::string tripList;
-    Params params = Params();
+    //Params params = Params();
     //FIXME Uncomment
     //if(!Params::ccfgMap.begin()->second == "true"){
-    for (int i = 0; i < 4; i++) {
-        resultFilePath.pop_back();
+
+    if (timestamp == true) {
+        for (int i = 0; i < 4; i++) {
+            resultFilePath.pop_back();
+        }
+        std::ostringstream oss;
+        oss << std::put_time(ptm, "%F_%H%M%S");
+        resultFilePath += oss.str() + ".txt";
     }
-    std::ostringstream oss;
-    oss << std::put_time(ptm, "%F_%X");
-    resultFilePath += oss.str() + ".txt";
-    //}
 
+    resultFilePath = Utils::addNumberToFileName(resultFilePath, resultNumber);
 
-//    std::cout << "Now (local time): " << std::put_time(ptm,"%F_%X") << '\n';
     std::ofstream file;
     file.open(resultFilePath, std::ios_base::app);
     if (file.is_open()) {
