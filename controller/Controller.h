@@ -6,9 +6,15 @@
 #define OBJ_COURIER_CONTROLLER_H
 
 
+#include <string>
+#include "../model/Mapper.h"
+#include "../model/Algorithm.h"
+
 class Controller {
 public:
     void execute(int argc, char *argv[]);
+
+    void generateResult(Mapper mapper, Algorithm algorithm, std::string inputFilePath, std::string resultFilePath);
 
 };
 
