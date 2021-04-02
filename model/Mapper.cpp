@@ -115,7 +115,7 @@ std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath) {
             tripList += (std::to_string(trip.getEdges()[i].getClientA()) + "->" +
                          std::to_string(trip.getEdges()[i].getClientB()) + "\n");
         }
-        tripList += "Journey cost: " + std::to_string(trip.getSummaryCost());
+        tripList += "Journey cost: " + std::to_string(trip.getSummaryCost()) + "\n";
         file << tripList;
         file.close();
     } else {
