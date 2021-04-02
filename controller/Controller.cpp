@@ -7,6 +7,7 @@
 #include "../model/Algorithm.h"
 #include "../model/Utils.h"
 #include "../view/View.h"
+#include "../model/Params.h"
 #include <filesystem>
 #include <iostream>
 
