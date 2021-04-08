@@ -94,7 +94,7 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
     return routes;
 }
 
-std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber) {
+std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber, std::string inputPath) {
     std::string tripList;
     //Params params = Params();
     //FIXME Uncomment
@@ -109,11 +109,15 @@ std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool ti
         resultFilePath += oss.str() + ".txt";
     }
 
-    resultFilePath = Utils::addNumberToFileName(resultFilePath, resultNumber);
+    if(numbers == true) resultFilePath = Utils::addNumberToFileName(resultFilePath, resultNumber);
 
+    inputPath = Utils::extractFileNameFromPath(inputPath);
     std::ofstream file;
     file.open(resultFilePath, std::ios_base::app);
     if (file.is_open()) {
+        std::ostringstream date;
+        date << std::put_time(ptm, "%d/%m/%y %H:%M:%S");
+        tripList += "Input file: " + inputPath + "\n" + "Date: " + date.str() + "\nTrip:\n";
         for (int i = 0; i < trip.getEdges().size(); i++) {
             tripList += (std::to_string(trip.getEdges()[i].getClientA()) + "->" +
                          std::to_string(trip.getEdges()[i].getClientB()) + "\n");

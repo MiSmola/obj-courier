@@ -20,6 +20,8 @@ public:
     static std::vector<int> convertIntSetToVectorWithBeginValue(std::vector<int> intVector, int value);
 
     static std::string addNumberToFileName(std::string resultFilePath, int resultNumber);
+
+    static std::string extractFileNameFromPath(std::string inputPath);
 };
 
 

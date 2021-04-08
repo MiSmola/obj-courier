@@ -14,7 +14,7 @@ class Controller {
 public:
     void execute(int argc, char *argv[]);
 
-    void generateResult(Mapper mapper, Algorithm algorithm, std::string inputFilePath, std::string resultFilePath,
+    void generateResult(Mapper mapper, Algorithm algorithm, std::string inputPath, std::string resultFilePath,
                         bool timestamp, bool numbers, int resultNumber);
 
 };

@@ -54,11 +54,11 @@ void Controller::execute(int argc, char **argv) {
 }
 
 void
-Controller::generateResult(Mapper mapper, Algorithm algorithm, std::string inputFilePath, std::string resultFilePath,
+Controller::generateResult(Mapper mapper, Algorithm algorithm, std::string inputPath, std::string resultFilePath,
                            bool timestamp, bool numbers, int resultNumber) {
 
-    Routes routes = mapper.mapFileToRoutes(inputFilePath);
+    Routes routes = mapper.mapFileToRoutes(inputPath);
     Trip trip = algorithm.generateTrip(routes, *routes.getClients().begin(),
                                        algorithm.generateConnectionArray(routes));
-    mapper.mapTripToFile(trip, resultFilePath, timestamp, numbers, resultNumber);
+    mapper.mapTripToFile(trip, resultFilePath, timestamp, numbers, resultNumber, inputPath);
 }

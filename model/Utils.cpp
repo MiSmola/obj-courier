@@ -46,4 +46,10 @@ std::string Utils::addNumberToFileName(std::string resultFilePath, int resultNum
     return resultFilePath;
 }
 
+std::string Utils::extractFileNameFromPath(std::string inputPath) {
+    std::size_t pos = inputPath.std::string::find_last_of("\\") + 1;
+    std::string result = inputPath.substr(pos);
+    return result;
+}
+
 
