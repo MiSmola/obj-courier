@@ -5,8 +5,19 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 #include "Mapper.h"
 #include "StringUtils.h"
+#include "Params.h"
+#include "Utils.h"
+
+
+using std::chrono::system_clock;
+std::time_t tt = system_clock::to_time_t(system_clock::now());
+struct std::tm *ptm = std::localtime(&tt);
 
 Routes Mapper::mapFileToRoutes(std::string fileName) {
     std::ifstream file(fileName);
@@ -83,11 +94,30 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
     return routes;
 }
 
-std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath) {
+std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber, std::string inputPath) {
     std::string tripList;
+    //Params params = Params();
+    //FIXME Uncomment
+    //if(!Params::ccfgMap.begin()->second == "true"){
+
+    if (timestamp == true) {
+        for (int i = 0; i < 4; i++) {
+            resultFilePath.pop_back();
+        }
+        std::ostringstream oss;
+        oss << std::put_time(ptm, "%F_%H%M%S");
+        resultFilePath += oss.str() + ".txt";
+    }
+
+    if(numbers == true) resultFilePath = Utils::addNumberToFileName(resultFilePath, resultNumber);
+
+    inputPath = Utils::extractFileNameFromPath(inputPath);
     std::ofstream file;
     file.open(resultFilePath, std::ios_base::app);
     if (file.is_open()) {
+        std::ostringstream date;
+        date << std::put_time(ptm, "%d/%m/%y %H:%M:%S");
+        tripList += "Input file: " + inputPath + "\n" + "Date: " + date.str() + "\nTrip:\n";
         for (int i = 0; i < trip.getEdges().size(); i++) {
             tripList += (std::to_string(trip.getEdges()[i].getClientA()) + "->" +
                          std::to_string(trip.getEdges()[i].getClientB()) + "\n");

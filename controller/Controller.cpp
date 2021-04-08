@@ -7,6 +7,7 @@
 #include "../model/Algorithm.h"
 #include "../model/Utils.h"
 #include "../view/View.h"
+#include "../model/Params.h"
 #include <filesystem>
 #include <iostream>
 
@@ -24,19 +25,25 @@ void Controller::execute(int argc, char **argv) {
 
         std::string inputPath = utils->fetchParametersAndPopulateInputFields(argc, argv)[0],
                 resultFileName = utils->fetchParametersAndPopulateInputFields(argc, argv)[1];
+        bool timestamp = true, numbers;     //FIXME Timestamp hardcode
 
         if (utils->fetchParametersAndPopulateInputFields(argc, argv)[3] == "-m") {
+            int resultNumber = 0;
+            numbers = true;
             for (const auto &entry : fs::directory_iterator(inputPath)) {
                 fs::path path{entry.path()};
                 std::string pathString{path.string()};
                 std::string txtCheck = pathString.substr(pathString.size() - 4, 4);
                 if (txtCheck == ".txt") {
                     if (inputPath != "" && resultFileName != "")
-                        generateResult(*mapper, *algorithm, pathString, resultFileName);
+                        resultNumber++;
+                    generateResult(*mapper, *algorithm, pathString, resultFileName, timestamp, numbers, resultNumber);
                 }
             }
         } else {
-            generateResult(*mapper, *algorithm, inputPath, resultFileName);
+            int resultNumber = 0;
+            numbers = false;
+            generateResult(*mapper, *algorithm, inputPath, resultFileName, timestamp, numbers, resultNumber);
         }
 
     } catch (int e) {
@@ -47,10 +54,11 @@ void Controller::execute(int argc, char **argv) {
 }
 
 void
-Controller::generateResult(Mapper mapper, Algorithm algorithm, std::string inputFilePath, std::string resultFilePath) {
+Controller::generateResult(Mapper mapper, Algorithm algorithm, std::string inputPath, std::string resultFilePath,
+                           bool timestamp, bool numbers, int resultNumber) {
 
-    Routes routes = mapper.mapFileToRoutes(inputFilePath);
+    Routes routes = mapper.mapFileToRoutes(inputPath);
     Trip trip = algorithm.generateTrip(routes, *routes.getClients().begin(),
                                        algorithm.generateConnectionArray(routes));
-    mapper.mapTripToFile(trip, resultFilePath);
+    mapper.mapTripToFile(trip, resultFilePath, timestamp, numbers, resultNumber, inputPath);
 }

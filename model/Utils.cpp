@@ -38,4 +38,18 @@ std::vector<std::string> Utils::fetchParametersAndPopulateInputFields(int argc, 
     return result;
 }
 
+std::string Utils::addNumberToFileName(std::string resultFilePath, int resultNumber) {
+    std::size_t pos = resultFilePath.std::string::find_last_of("\\") + 1;
+    std::string fileName = resultFilePath.substr(pos, resultFilePath.size() - pos);
+    resultFilePath = resultFilePath.erase(pos, resultFilePath.size() - pos);
+    resultFilePath += std::to_string(resultNumber) + "-" + fileName;
+    return resultFilePath;
+}
+
+std::string Utils::extractFileNameFromPath(std::string inputPath) {
+    std::size_t pos = inputPath.std::string::find_last_of("\\") + 1;
+    std::string result = inputPath.substr(pos);
+    return result;
+}
+
 
