@@ -11,15 +11,10 @@
 #include <map>
 
 class Params {
-
 public:
-//    static std::map<std::string, std::string> MAP;
-//
-//    static void Params::loadParameters();
-//
-//    static void feedShit();
+    static std::map<std::string, std::string> cfgMap;
 
-    // const std::map<std::string, std::string> myMap;
+    static void Params::loadParameters();
 };
 
 
