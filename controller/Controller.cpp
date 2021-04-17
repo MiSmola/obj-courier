@@ -18,6 +18,8 @@ void Controller::execute(int argc, char **argv) {
     View *view = new View();
     Mapper *mapper = new Mapper();
     Algorithm *algorithm = new Algorithm();
+    Params::loadParameters();
+
     view->welcomeMessage();
     try {
         if (utils->fetchParametersAndPopulateInputFields(argc, argv)[2] == "-h")
@@ -25,7 +27,14 @@ void Controller::execute(int argc, char **argv) {
 
         std::string inputPath = utils->fetchParametersAndPopulateInputFields(argc, argv)[0],
                 resultFileName = utils->fetchParametersAndPopulateInputFields(argc, argv)[1];
-        bool timestamp = true, numbers;     //FIXME Timestamp hardcode
+
+        bool timestamp, numbers;
+        auto it = Params::cfgMap.find("outfile.name.timestamp");
+        std::string paramOutfileNameTimestamp;
+        if (it != Params::cfgMap.end())
+            paramOutfileNameTimestamp = it->second;
+        if (paramOutfileNameTimestamp == "true") timestamp = true;
+        else timestamp = false;
 
         if (utils->fetchParametersAndPopulateInputFields(argc, argv)[3] == "-m") {
             int resultNumber = 0;

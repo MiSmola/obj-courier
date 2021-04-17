@@ -11,7 +11,8 @@
 
 int main(int argc, char *argv[]) {
     //Params::myMap.empty();
-
+    //Params *params = new Params();
+    //params->loadParameters();
     Controller *controller = new Controller();
     controller->execute(argc, argv);
     return 0;

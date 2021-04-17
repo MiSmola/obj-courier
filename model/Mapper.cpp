@@ -75,8 +75,7 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
                 // Clients set population - all duplicates are reduced
                 clients.insert(clientFrom);
                 clients.insert(clientTo);
-                //FIXME: graph.getEdges().push_back(edge);
-                graph.edges.push_back(edge);
+                graph.addEdge(edge);
                 numberOfLines++;
             }
 
@@ -94,22 +93,20 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
     return routes;
 }
 
-std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber, std::string inputPath) {
+std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber,
+                                  std::string inputPath) {
     std::string tripList;
-    //Params params = Params();
-    //FIXME Uncomment
-    //if(!Params::ccfgMap.begin()->second == "true"){
 
-    if (timestamp == true) {
-        for (int i = 0; i < 4; i++) {
+    if (timestamp) {
+        for (int i = 0; i < 4; i++)
             resultFilePath.pop_back();
-        }
+
         std::ostringstream oss;
         oss << std::put_time(ptm, "%F_%H%M%S");
         resultFilePath += oss.str() + ".txt";
     }
 
-    if(numbers == true) resultFilePath = Utils::addNumberToFileName(resultFilePath, resultNumber);
+    if (numbers) resultFilePath = Utils::addNumberToFileName(resultFilePath, resultNumber);
 
     inputPath = Utils::extractFileNameFromPath(inputPath);
     std::ofstream file;
@@ -118,9 +115,9 @@ std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool ti
         std::ostringstream date;
         date << std::put_time(ptm, "%d/%m/%y %H:%M:%S");
         tripList += "Input file: " + inputPath + "\n" + "Date: " + date.str() + "\nTrip:\n";
-        for (int i = 0; i < trip.getEdges().size(); i++) {
-            tripList += (std::to_string(trip.getEdges()[i].getClientA()) + "->" +
-                         std::to_string(trip.getEdges()[i].getClientB()) + "\n");
+        for (const auto &i : trip.getEdges()) {
+            tripList += (std::to_string(i.getClientA()) + "->" +
+                         std::to_string(i.getClientB()) + "\n");
         }
         tripList += "Journey cost: " + std::to_string(trip.getSummaryCost()) + "\n";
         file << tripList;

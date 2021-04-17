@@ -15,7 +15,8 @@ class Mapper {
 public:
     Routes mapFileToRoutes(std::string fileName);
 
-    std::string mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber, std::string inputPath);
+    std::string mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber,
+                              std::string inputPath);
 };
 
 
