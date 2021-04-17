@@ -75,8 +75,7 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
                 // Clients set population - all duplicates are reduced
                 clients.insert(clientFrom);
                 clients.insert(clientTo);
-                //FIXME: graph.getEdges().push_back(edge);
-                graph.edges.push_back(edge);
+                graph.addEdge(edge);
                 numberOfLines++;
             }
 
@@ -94,7 +93,8 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
     return routes;
 }
 
-std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber, std::string inputPath) {
+std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber,
+                                  std::string inputPath) {
     std::string tripList;
 
     if (timestamp) {
@@ -106,7 +106,7 @@ std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool ti
         resultFilePath += oss.str() + ".txt";
     }
 
-    if(numbers) resultFilePath = Utils::addNumberToFileName(resultFilePath, resultNumber);
+    if (numbers) resultFilePath = Utils::addNumberToFileName(resultFilePath, resultNumber);
 
     inputPath = Utils::extractFileNameFromPath(inputPath);
     std::ofstream file;
@@ -115,7 +115,7 @@ std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool ti
         std::ostringstream date;
         date << std::put_time(ptm, "%d/%m/%y %H:%M:%S");
         tripList += "Input file: " + inputPath + "\n" + "Date: " + date.str() + "\nTrip:\n";
-        for (const auto & i : trip.getEdges()) {
+        for (const auto &i : trip.getEdges()) {
             tripList += (std::to_string(i.getClientA()) + "->" +
                          std::to_string(i.getClientB()) + "\n");
         }

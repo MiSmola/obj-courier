@@ -33,7 +33,7 @@ void Controller::execute(int argc, char **argv) {
         std::string paramOutfileNameTimestamp;
         if (it != Params::cfgMap.end())
             paramOutfileNameTimestamp = it->second;
-        if(paramOutfileNameTimestamp == "true") timestamp = true;
+        if (paramOutfileNameTimestamp == "true") timestamp = true;
         else timestamp = false;
 
         if (utils->fetchParametersAndPopulateInputFields(argc, argv)[3] == "-m") {
