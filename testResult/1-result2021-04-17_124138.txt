@@ -1,7 +1,0 @@
-Input file: firstFile.txt
-Date: 17/04/21 12:41:38
-Trip:
-33->2
-2->100
-100->33
-Journey cost: 8.100000

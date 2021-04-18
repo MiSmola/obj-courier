@@ -36,6 +36,16 @@ void View::errorMapperDirection() {
     std::cerr << "Mapper Error: Nieprawidlowo okreslony kierunek." << std::endl;
 }
 
+void View::errorFileExtension() {
+    std::cerr << "Fetch Error: Niewlasciwe rozszerzenie pliku wejsciowego lub wyjsciowego." << std::endl;
+}
+
+void View::errorPropFileForm() {
+    std::cerr << "Nieprawidlowa zawartosc pliku wlasciwosci courier.properties." << std::endl;
+}
+
 void View::endMessage() {
     std::cout << "Program zakonczyl poszukiwanie i zapisal droge wraz z kosztem w pliku wynikowym." << std::endl;
 }
+
+
