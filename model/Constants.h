@@ -10,5 +10,6 @@
 
 const std::string PROPERTIES_FILE_NAME = "courier.properties";
 const std::string DEFAULT_CONFIG = "outfile.name.timestamp=true";
+const std::string TSTAMP_PROPERTY = "outfile.name.timestamp";
 
 #endif //OBJ_COURIER_CONSTANTS_H

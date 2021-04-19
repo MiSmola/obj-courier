@@ -3,12 +3,12 @@
 //
 
 #include <fstream>
-
 #include <iostream>
 #include "Params.h"
 #include "Constants.h"
 #include <filesystem>
 #include <string>
+#include <regex>
 
 namespace fs = std::filesystem;
 
@@ -38,9 +38,18 @@ void Params::loadParameters() {
     } else {
         //if the cfg file already exists
         std::ifstream paramFile((cfgFileDirectory + PROPERTIES_FILE_NAME));
+        std::string propFileString;
+
         while (!paramFile.eof()) {
+            std::string prop = "";
             getline(paramFile, left, '=');
+            prop += (left + "=");
             getline(paramFile, right);
+            prop += right;
+
+            std::regex propertiesFilePattern(".+[=].+");
+            if (!(std::regex_match(prop, propertiesFilePattern))) throw -4;
+
             Params::cfgMap.insert(std::pair<std::string, std::string>(left, right));
         }
         paramFile.close();

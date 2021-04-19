@@ -17,7 +17,12 @@ public:
 
     void errorMapperDirection();
 
+    void errorFileExtension();
+
+    void errorPropFileForm();
+
     void endMessage();
+
 
 };
 
