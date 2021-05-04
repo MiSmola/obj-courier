@@ -54,7 +54,8 @@ void Controller::execute(int argc, char **argv) {
                     if (std::regex_match(pathString, textFileExtensionPattern)) {
                         if (inputPath != "" && resultFileName != "")
                             resultNumber++;
-                        generateResult(*mapper, *algorithm, pathString, resultFileName, timestamp, numbers, resultNumber);
+                        generateResult(*mapper, *algorithm, pathString, resultFileName, timestamp, numbers,
+                                       resultNumber);
                     }
                 }
             } else {

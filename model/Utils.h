@@ -22,6 +22,10 @@ public:
     static std::string addNumberToFileName(std::string resultFilePath, int resultNumber);
 
     static std::string extractFileNameFromPath(std::string inputPath);
+
+    static std::string getCurrentTime();
+
+    static std::string Utils::getCurrentTimeAsddMMYYYY();
 };
 
 

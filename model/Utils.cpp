@@ -3,6 +3,10 @@
 //
 
 #include <iterator>
+#include <chrono>
+#include <ctime>
+#include <sstream>
+#include <iomanip>
 #include "Utils.h"
 
 std::vector<int> Utils::convertIntSetToVector(std::set<int> set) {
@@ -52,4 +56,21 @@ std::string Utils::extractFileNameFromPath(std::string inputPath) {
     return result;
 }
 
+std::string Utils::getCurrentTime() {
+    auto currentTime = std::chrono::system_clock::now();
+    std::time_t _currentTime = std::chrono::system_clock::to_time_t(currentTime);
+    char *ctime = std::ctime(&_currentTime);
+    std::string str(ctime);
+    str.erase(std::remove(str.begin(), str.end(), '\n'), str.end());
+    return str;
+}
+
+
+std::string Utils::getCurrentTimeAsddMMYYYY() {
+    auto currentTime = std::chrono::system_clock::now();
+    std::time_t _currentTime = std::chrono::system_clock::to_time_t(currentTime);
+    std::stringstream ss;
+    ss << std::put_time(std::localtime(&_currentTime), "%d-%m-%Y");
+    return ss.str();
+}
 
