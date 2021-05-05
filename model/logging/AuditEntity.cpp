@@ -63,7 +63,7 @@ Task AuditEntity::handleTask(int taskIndex, Task &task, std::string classId, std
             break;
         case FINISHED:
             task.setTimeFinish(std::chrono::high_resolution_clock::now());
-            std::chrono::duration<double, std::milli> elapsed = timeFinish - timeStart;
+            std::chrono::duration<double, std::milli> elapsed = timeFinish - task.getTimeStart();
             task.setTime(elapsed);
             task.setStatus(status);
             list.set(taskIndex, task);
