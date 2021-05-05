@@ -15,7 +15,7 @@ class Task {
 private:
     int id = -1;
     TASK_STATUS status = NEW;
-    std::chrono::duration<double, std::milli> time;
+    std::chrono::duration<double, std::milli> time = std::chrono::milliseconds(0);
     std::string className;
     std::string methodName;
     std::chrono::time_point<std::chrono::steady_clock> timeStart;
