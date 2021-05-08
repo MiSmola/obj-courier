@@ -9,8 +9,9 @@
 #include <vector>
 #include "datastructures/Routes.h"
 #include "datastructures/Trip.h"
+#include "logging/AuditEntity.h"
 
-class Algorithm {
+class Algorithm : public AuditEntity {
 public:
     std::vector<std::vector<bool>> generateConnectionArray(Routes routes);
 

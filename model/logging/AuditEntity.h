@@ -11,6 +11,7 @@
 #include "LogToFile.h"
 #include "../datastructures/List.h"
 #include "Task.h"
+#include "LogToConsole.h"
 
 class AuditEntity {
 private:
@@ -21,7 +22,7 @@ private:
     int getTaskIndex(int id);
 
 public:
-    LoggingStrategy *log = new LoggingStrategy(new LogToFile());
+    LoggingStrategy *log = new LoggingStrategy(new LogToConsole());
 
     Task getTask(int id);
 

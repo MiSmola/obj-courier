@@ -22,6 +22,7 @@ std::vector<std::vector<bool>> Algorithm::generateConnectionArray(Routes routes)
 }
 
 Trip Algorithm::generateTrip(Routes routes, int from, std::vector<std::vector<bool>> connections) {
+    int id = registerTask("Algorithm", "generateTrip");
     int n = routes.getSize() - 1;
     std::vector<int> clientsVector = Utils::convertIntSetToVector(routes.getClients());
     std::vector<int> clients = Utils::convertIntSetToVectorWithBeginValue(clientsVector, 0);
@@ -101,6 +102,7 @@ Trip Algorithm::generateTrip(Routes routes, int from, std::vector<std::vector<bo
                 clientsIndex++;
         }
     }
+    closeTask(id);
     return findTheCheapestTrip(edgesOfEdges);
 }
 
@@ -148,6 +150,7 @@ Edge Algorithm::findEdgeInGraphByClientsAAndB(std::vector<Edge> searchEdges, int
 }
 
 Trip Algorithm::findTheCheapestTrip(std::vector<std::vector<Edge>> trips) {
+    int id = registerTask("Algorithm", "findTheCheapestTrip");
     double theCheapestTripSummaryCost = -1;
     std::vector<Edge> theCheapestTrip;
     for (int tripNo = 0; tripNo < trips.size(); tripNo++) {
@@ -161,5 +164,6 @@ Trip Algorithm::findTheCheapestTrip(std::vector<std::vector<Edge>> trips) {
         }
     }
     Trip t(theCheapestTrip, theCheapestTripSummaryCost);
+    closeTask(id);
     return t;
 }

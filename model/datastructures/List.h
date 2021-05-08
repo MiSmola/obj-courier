@@ -92,8 +92,13 @@ public:
                 temp = temp->next;
                 i++;
             }
-            n->next = temp->next->next;
-            temp->next = n;
+            if(i != size - 1) {
+                n->next = temp->next->next;
+                temp->next = n;
+            } else {
+                n->next = nullptr;
+                temp->next = n;
+            }
         } else {
             n->next = nullptr;
             head = n;
