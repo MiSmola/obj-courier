@@ -20,6 +20,7 @@ std::time_t tt = system_clock::to_time_t(system_clock::now());
 struct std::tm *ptm = std::localtime(&tt);
 
 Routes Mapper::mapFileToRoutes(std::string fileName) {
+    int id = registerTask("Mapper", "mapFileToRoutes");
     std::ifstream file(fileName);
     std::string line, result, content;
     Routes routes;
@@ -90,11 +91,13 @@ Routes Mapper::mapFileToRoutes(std::string fileName) {
         throw -2;
     }
     file.close();
+    closeTask(id);
     return routes;
 }
 
 std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool timestamp, bool numbers, int resultNumber,
                                   std::string inputPath) {
+    int id = registerTask("Mapper", "mapTripToFile");
     std::string tripList;
 
     if (timestamp) {
@@ -125,5 +128,6 @@ std::string Mapper::mapTripToFile(Trip trip, std::string resultFilePath, bool ti
     } else {
         std::cerr << "Error opening result file!" << std::endl;
     }
+    closeTask(id);
     return resultFilePath;
 }

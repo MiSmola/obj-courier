@@ -23,16 +23,17 @@ int main(int argc, char *argv[]) {
 //    loggingStrategy->changeLoggingStrategy(dynamic_cast<Logging *>(new LogToConsole()));
 //    loggingStrategy->log("DO KONSOLI");
 //
-//    Controller *controller = new Controller();
-//    controller->execute(argc, argv);
-    TestActivity *t = new TestActivity();
-    t->perform();
-    t->perform();
-    t->perform();
-    t->perform();
+    Controller *controller = new Controller();
+    controller->execute(argc, argv);
 
-    List<Task> list = t->getFinishedTasks();
-    for (int i = 0; i < list.getSize(); i++)
-        std::cout << list.get(i);
+//    TestActivity *t = new TestActivity();
+//    t->perform();
+//    t->perform();
+//    t->perform();
+//    t->perform();
+//
+//    List<Task> list = t->getFinishedTasks();
+//    for (int i = 0; i < list.getSize(); i++)
+//        std::cout << list.get(i);
     return 0;
 }

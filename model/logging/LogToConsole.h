@@ -10,12 +10,16 @@
 #include "Logging.h"
 
 class LogToConsole : public Logging {
+private:
+    std::string fetchLogLevel(LOG_LEVEL level);
+
 public:
     virtual void log(std::string str);
 
-    void showInConsole();
+    void log(std::string classId, std::string methodId, LOG_LEVEL level, std::string str);
 
-    void getTasksList();
+    void showInConsole(std::string str, LOG_LEVEL level);
+
 };
 
 

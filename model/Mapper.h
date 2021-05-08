@@ -10,8 +10,9 @@
 #include "datastructures/Routes.h"
 #include "datastructures/Trip.h"
 #include "datastructures/Graph.h"
+#include "logging/AuditEntity.h"
 
-class Mapper {
+class Mapper : public AuditEntity {
 public:
     Routes mapFileToRoutes(std::string fileName);
 

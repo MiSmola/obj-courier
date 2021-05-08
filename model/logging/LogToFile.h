@@ -27,7 +27,6 @@ public:
 
     void saveToFile();
 
-    void getTasksList();
 };
 
 

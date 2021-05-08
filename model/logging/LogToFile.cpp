@@ -29,10 +29,6 @@ void LogToFile::saveToFile() {
     writeLog("Log file closed", static_cast<LOG_LEVEL>(NULL), true, true);
 }
 
-void LogToFile::getTasksList() {
-
-}
-
 void LogToFile::writeLog(std::string str, LOG_LEVEL level, bool withCheck, bool withClose) {
     if (withCheck && logFile.is_open()) {
         logFile << "[" + Utils::getCurrentTime() + "] " << fetchLogLevel(level) << str << std::endl;

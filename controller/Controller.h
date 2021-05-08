@@ -10,7 +10,7 @@
 #include "../model/Mapper.h"
 #include "../model/Algorithm.h"
 
-class Controller {
+class Controller : public AuditEntity {
 public:
     void execute(int argc, char *argv[]);
 

@@ -16,6 +16,8 @@
 namespace fs = std::filesystem;
 
 void Controller::execute(int argc, char **argv) {
+    int id = registerTask("Controller", "execute");
+
     Utils *utils = new Utils();
     View *view = new View();
     Mapper *mapper = new Mapper();
@@ -72,14 +74,16 @@ void Controller::execute(int argc, char **argv) {
         if (e == -4) view->errorPropFileForm();
     }
     view->endMessage();
+    closeTask(id);
 }
 
-void
-Controller::generateResult(Mapper mapper, Algorithm algorithm, std::string inputPath, std::string resultFilePath,
-                           bool timestamp, bool numbers, int resultNumber) {
+void Controller::generateResult(Mapper mapper, Algorithm algorithm, std::string inputPath, std::string resultFilePath,
+                                bool timestamp, bool numbers, int resultNumber) {
 
+    int id = registerTask("Controller", "generateResult");
     Routes routes = mapper.mapFileToRoutes(inputPath);
     Trip trip = algorithm.generateTrip(routes, *routes.getClients().begin(),
                                        algorithm.generateConnectionArray(routes));
     mapper.mapTripToFile(trip, resultFilePath, timestamp, numbers, resultNumber, inputPath);
+    closeTask(id);
 }
