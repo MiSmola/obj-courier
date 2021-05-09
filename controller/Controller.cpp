@@ -16,6 +16,8 @@
 namespace fs = std::filesystem;
 
 void Controller::execute(int argc, char **argv) {
+
+
     int id = registerTask("Controller", "execute");
 
     Utils *utils = new Utils();
@@ -38,7 +40,7 @@ void Controller::execute(int argc, char **argv) {
         bool multiMode = utils->fetchParametersAndPopulateInputFields(argc, argv)[3] == "-m";
 
         if ((regexMatch && !multiMode) || (!regexMatch && multiMode)) {
-            Params::loadParameters();
+//            Params::loadParameters();
             bool timestamp, numbers;
             auto it = Params::cfgMap.find(TSTAMP_PROPERTY);
             std::string paramOutfileNameTimestamp;

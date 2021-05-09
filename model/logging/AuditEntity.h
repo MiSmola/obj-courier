@@ -17,12 +17,17 @@ class AuditEntity {
 private:
     List<Task> list;
 
+    LoggingStrategy *log = new LoggingStrategy(new LogToConsole());
+
     Task handleTask(int taskIndex, Task &task, std::string classId, std::string methodId, TASK_STATUS status);
 
     int getTaskIndex(int id);
 
 public:
-    LoggingStrategy *log = new LoggingStrategy(new LogToConsole());
+    AuditEntity();
+
+    //courier.properties: logging.appender=FILE/STDOUT
+    //courier.properties: logging.fileoutpath=<directory>
 
     Task getTask(int id);
 
