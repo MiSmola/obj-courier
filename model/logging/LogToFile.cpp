@@ -6,11 +6,18 @@
 #include <filesystem>
 #include "LogToFile.h"
 #include "../Utils.h"
+#include "../Params.h"
 
 LogToFile::LogToFile() {
     //TODO: Parametrize the place where the logs are saved,
     // the default approach and the path should be parametrized, task needed
-    std::string logFileName = "log-" + Utils::getCurrentTimeAsddMMYYYY() + ".log";
+    auto it = Params::cfgMap.find(FILE_OUTPUT_PROPERTY);
+    std::string logFilePath;
+    if (it != Params::cfgMap.end())
+        logFilePath = it->second;
+    logFilePath.erase(logFilePath.begin());
+    logFilePath.erase(logFilePath.size()-1);
+    std::string logFileName = logFilePath + "\\log-" + Utils::getCurrentTimeAsddMMYYYY() + ".log";
     bool isNewFile = std::filesystem::exists(logFileName);
     logFile.open(logFileName, std::ios_base::app);
     writeLog(isNewFile ? "Log file opened" : "Log file created",

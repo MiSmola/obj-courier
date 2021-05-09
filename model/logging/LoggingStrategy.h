@@ -15,7 +15,7 @@ private:
 public:
     LoggingStrategy(Logging *logging);
 
-    void changeLoggingStrategy(Logging *logging);
+    void changeLoggingStrategy();
 
     virtual void log(std::string str);
 

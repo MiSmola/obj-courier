@@ -23,6 +23,7 @@ int main(int argc, char *argv[]) {
 //    loggingStrategy->changeLoggingStrategy(dynamic_cast<Logging *>(new LogToConsole()));
 //    loggingStrategy->log("DO KONSOLI");
 //
+    Params::loadParameters();
     Controller *controller = new Controller();
     controller->execute(argc, argv);
 

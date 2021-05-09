@@ -84,3 +84,7 @@ int AuditEntity::getTaskIndex(int id) {
             return i;
     return -1;
 }
+
+AuditEntity::AuditEntity() {
+    log->changeLoggingStrategy();
+}
