@@ -1,7 +1,3 @@
-//
-// Created by djnic on 08.03.2021.
-//
-
 #include "Edge.h"
 
 Edge::Edge(int clientA, int clientB, double weight, int direction) : clientA(clientA), clientB(clientB), weight(weight),

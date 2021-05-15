@@ -1,9 +1,4 @@
-//
-// Created by djnic on 19.04.2021.
-//
-
 #include "AuditEntity.h"
-#include "../Constants.h"
 #include <chrono>
 #include <iostream>
 #include <sstream>
@@ -43,7 +38,6 @@ List<Task> AuditEntity::getFinishedTasks() {
     return result;
 }
 
-//TODO: Handle logging in the task using given strategy
 Task AuditEntity::handleTask(int taskIndex, Task &task, std::string classId, std::string methodId, TASK_STATUS status) {
     std::chrono::time_point<std::chrono::steady_clock> timeFinish = std::chrono::high_resolution_clock::now(),
             timeStart;

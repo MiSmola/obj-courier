@@ -1,16 +1,8 @@
-//
-// Created by djnic on 27.03.2021.
-//
-
 #include "Controller.h"
-#include "../model/Mapper.h"
-#include "../model/Algorithm.h"
 #include "../model/Utils.h"
 #include "../view/View.h"
 #include "../model/Params.h"
-#include "../model/Constants.h"
 #include <filesystem>
-#include <iostream>
 #include <regex>
 
 namespace fs = std::filesystem;
@@ -40,7 +32,6 @@ void Controller::execute(int argc, char **argv) {
         bool multiMode = utils->fetchParametersAndPopulateInputFields(argc, argv)[3] == "-m";
 
         if ((regexMatch && !multiMode) || (!regexMatch && multiMode)) {
-//            Params::loadParameters();
             bool timestamp, numbers;
             auto it = Params::cfgMap.find(TSTAMP_PROPERTY);
             std::string paramOutfileNameTimestamp;
@@ -81,7 +72,6 @@ void Controller::execute(int argc, char **argv) {
 
 void Controller::generateResult(Mapper mapper, Algorithm algorithm, std::string inputPath, std::string resultFilePath,
                                 bool timestamp, bool numbers, int resultNumber) {
-
     int id = registerTask("Controller", "generateResult");
     Routes routes = mapper.mapFileToRoutes(inputPath);
     Trip trip = algorithm.generateTrip(routes, *routes.getClients().begin(),

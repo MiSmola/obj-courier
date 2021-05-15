@@ -1,7 +1,3 @@
-//
-// Created by djnic on 17.03.2021.
-//
-
 #ifndef OBJ_COURIER_ALGORITHM_H
 #define OBJ_COURIER_ALGORITHM_H
 

@@ -1,7 +1,3 @@
-//
-// Created by djnic on 19.04.2021.
-//
-
 #include <string>
 #include "Logging.h"
 

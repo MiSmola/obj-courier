@@ -1,7 +1,3 @@
-//
-// Created by djnic on 16.03.2021.
-//
-
 #include "StringUtils.h"
 
 int StringUtils::findAll(std::string str, char delim) {
