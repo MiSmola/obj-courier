@@ -1,14 +1,8 @@
-//
-// Created by djnic on 31.10.2020.
-//
-
 #ifndef SUFFIXTABLE_LIST_H
 #define SUFFIXTABLE_LIST_H
 
 #include <string>
 #include <iostream>
-
-// TODO: change the definitions to the source file
 
 template<typename T>
 struct Node {
@@ -92,7 +86,7 @@ public:
                 temp = temp->next;
                 i++;
             }
-            if(i != size - 1) {
+            if (i != size - 1) {
                 n->next = temp->next->next;
                 temp->next = n;
             } else {

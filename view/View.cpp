@@ -1,7 +1,3 @@
-//
-// Created by djnic on 27.03.2021.
-//
-
 #include <string>
 #include <iostream>
 #include "View.h"

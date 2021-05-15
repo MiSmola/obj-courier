@@ -1,7 +1,3 @@
-//
-// Created by djnic on 30.03.2021.
-//
-
 #ifndef OBJ_COURIER_CONSTANTS_H
 #define OBJ_COURIER_CONSTANTS_H
 

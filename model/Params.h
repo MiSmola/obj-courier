@@ -1,7 +1,3 @@
-//
-// Created by djnic on 27.03.2021.
-//
-
 #ifndef OBJ_COURIER_PARAMS_H
 #define OBJ_COURIER_PARAMS_H
 

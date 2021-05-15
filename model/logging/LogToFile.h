@@ -1,7 +1,3 @@
-//
-// Created by djnic on 19.04.2021.
-//
-
 #ifndef OBJ_COURIER_LOGTOFILE_H
 #define OBJ_COURIER_LOGTOFILE_H
 

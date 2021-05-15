@@ -1,7 +1,3 @@
-//
-// Created by djnic on 16.03.2021.
-//
-
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -11,7 +7,6 @@
 #include <sstream>
 #include "Mapper.h"
 #include "StringUtils.h"
-#include "Params.h"
 #include "Utils.h"
 
 

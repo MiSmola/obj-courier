@@ -1,7 +1,3 @@
-//
-// Created by djnic on 17.03.2021.
-//
-
 #include "Algorithm.h"
 #include "Utils.h"
 
@@ -36,25 +32,9 @@ Trip Algorithm::generateTrip(Routes routes, int from, std::vector<std::vector<bo
     std::vector<std::vector<Edge>> edgesOfEdges;
 
     while (pathArrayIndex >= 0) {
-        if (!alreadyContainsClient(pathArray, clients[clientsIndex], pathArrayIndex) && (starting ||
-                                                                                         (pathArrayIndex != 0 &&
-                                                                                          (clients[clientsIndex] - 1 >=
-                                                                                           0 &&
-                                                                                           pathArray[pathArrayIndex -
-                                                                                                     1] - 1 >= 0)
-                                                                                          && connections[
-                                                                                                     findClientIndex(
-                                                                                                             clients,
-                                                                                                             pathArray[
-                                                                                                                     pathArrayIndex -
-                                                                                                                     1],
-                                                                                                             clients.size()) -
-                                                                                                     1][
-                                                                                                     findClientIndex(
-                                                                                                             clients,
-                                                                                                             clients[clientsIndex],
-                                                                                                             clients.size()) -
-                                                                                                     1] == 1))) {
+        if (!alreadyContainsClient(pathArray, clients[clientsIndex], pathArrayIndex) &&
+            (starting || (pathArrayIndex != 0 && (clients[clientsIndex] - 1 >= 0 && pathArray[pathArrayIndex - 1] - 1 >= 0)
+            && connections[findClientIndex(clients,pathArray[pathArrayIndex - 1], clients.size()) - 1][findClientIndex(clients, clients[clientsIndex], clients.size()) - 1] == 1))) {
             starting = false;
             pathArray[pathArrayIndex] = clients[clientsIndex];
 

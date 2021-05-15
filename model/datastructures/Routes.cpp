@@ -1,7 +1,3 @@
-//
-// Created by djnic on 08.03.2021.
-//
-
 #include "Routes.h"
 
 void Routes::addClient(int client) {
