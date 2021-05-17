@@ -57,6 +57,8 @@ public:
     int registerTask();
 
     Task closeTask(int id);
+
+    ~AuditEntity();
 };
 
 

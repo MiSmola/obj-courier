@@ -82,3 +82,7 @@ int AuditEntity::getTaskIndex(int id) {
 AuditEntity::AuditEntity() {
     log->changeLoggingStrategy();
 }
+
+AuditEntity::~AuditEntity() {
+    log = nullptr;
+}

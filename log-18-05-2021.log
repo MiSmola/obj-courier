@@ -1,0 +1,35 @@
+[Tue May 18 00:05:36 2021] INFO Log file created
+[Tue May 18 00:05:36 2021] INFO Controller.execute Process task: { id: 1, status: 1, time: 0, className: Controller, methodName: execute } started
+[Tue May 18 00:05:36 2021] INFO Log file opened
+[Tue May 18 00:05:36 2021] INFO Log file opened
+[Tue May 18 00:05:36 2021] INFO Controller.generateResult Process task: { id: 2, status: 1, time: 0, className: Controller, methodName: generateResult } started
+[Tue May 18 00:05:36 2021] INFO Mapper.mapFileToRoutes Process task: { id: 3, status: 1, time: 0, className: Mapper, methodName: mapFileToRoutes } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 3, status: 3, time: 0, className: Mapper, methodName: mapFileToRoutes } finished
+[Tue May 18 00:05:36 2021] INFO Algorithm.generateTrip Process task: { id: 4, status: 1, time: 0, className: Algorithm, methodName: generateTrip } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 4, status: 3, time: 0, className: Algorithm, methodName: generateTrip } finished
+[Tue May 18 00:05:36 2021] INFO Algorithm.findTheCheapestTrip Process task: { id: 5, status: 1, time: 0, className: Algorithm, methodName: findTheCheapestTrip } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 5, status: 3, time: 0, className: Algorithm, methodName: findTheCheapestTrip } finished
+[Tue May 18 00:05:36 2021] INFO Mapper.mapTripToFile Process task: { id: 6, status: 1, time: 0, className: Mapper, methodName: mapTripToFile } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 6, status: 3, time: 2, className: Mapper, methodName: mapTripToFile } finished
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 2, status: 3, time: 3, className: Controller, methodName: generateResult } finished
+[Tue May 18 00:05:36 2021] INFO Controller.generateResult Process task: { id: 7, status: 1, time: 0, className: Controller, methodName: generateResult } started
+[Tue May 18 00:05:36 2021] INFO Mapper.mapFileToRoutes Process task: { id: 8, status: 1, time: 0, className: Mapper, methodName: mapFileToRoutes } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 8, status: 3, time: 0, className: Mapper, methodName: mapFileToRoutes } finished
+[Tue May 18 00:05:36 2021] INFO Algorithm.generateTrip Process task: { id: 9, status: 1, time: 0, className: Algorithm, methodName: generateTrip } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 9, status: 3, time: 0, className: Algorithm, methodName: generateTrip } finished
+[Tue May 18 00:05:36 2021] INFO Algorithm.findTheCheapestTrip Process task: { id: 10, status: 1, time: 0, className: Algorithm, methodName: findTheCheapestTrip } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 10, status: 3, time: 0, className: Algorithm, methodName: findTheCheapestTrip } finished
+[Tue May 18 00:05:36 2021] INFO Mapper.mapTripToFile Process task: { id: 11, status: 1, time: 0, className: Mapper, methodName: mapTripToFile } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 11, status: 3, time: 2, className: Mapper, methodName: mapTripToFile } finished
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 7, status: 3, time: 4, className: Controller, methodName: generateResult } finished
+[Tue May 18 00:05:36 2021] INFO Controller.generateResult Process task: { id: 12, status: 1, time: 0, className: Controller, methodName: generateResult } started
+[Tue May 18 00:05:36 2021] INFO Mapper.mapFileToRoutes Process task: { id: 13, status: 1, time: 0, className: Mapper, methodName: mapFileToRoutes } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 13, status: 3, time: 0, className: Mapper, methodName: mapFileToRoutes } finished
+[Tue May 18 00:05:36 2021] INFO Algorithm.generateTrip Process task: { id: 14, status: 1, time: 0, className: Algorithm, methodName: generateTrip } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 14, status: 3, time: 1, className: Algorithm, methodName: generateTrip } finished
+[Tue May 18 00:05:36 2021] INFO Algorithm.findTheCheapestTrip Process task: { id: 15, status: 1, time: 0, className: Algorithm, methodName: findTheCheapestTrip } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 15, status: 3, time: 0, className: Algorithm, methodName: findTheCheapestTrip } finished
+[Tue May 18 00:05:36 2021] INFO Mapper.mapTripToFile Process task: { id: 16, status: 1, time: 0, className: Mapper, methodName: mapTripToFile } started
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 16, status: 3, time: 2, className: Mapper, methodName: mapTripToFile } finished
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 12, status: 3, time: 5, className: Controller, methodName: generateResult } finished
+[Tue May 18 00:05:36 2021] INFO AuditEntity.closeTask Process task: { id: 1, status: 3, time: 17, className: Controller, methodName: execute } finished

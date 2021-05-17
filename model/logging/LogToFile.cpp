@@ -11,7 +11,11 @@ LogToFile::LogToFile() {
         logFilePath = it->second;
     logFilePath.erase(logFilePath.begin());
     logFilePath.erase(logFilePath.size() - 1);
-    std::string logFileName = logFilePath + "\\log-" + Utils::getCurrentTimeAsddMMYYYY() + ".log";
+    std::string logFileName;
+    if (logFilePath.size() == 0) logFileName = logFilePath + "log-" + Utils::getCurrentTimeAsddMMYYYY() + ".log";
+    else
+        logFileName = logFilePath + "\\log-" + Utils::getCurrentTimeAsddMMYYYY() + ".log";
+
     bool isNewFile = std::filesystem::exists(logFileName);
     logFile.open(logFileName, std::ios_base::app);
     writeLog(isNewFile ? "Log file opened" : "Log file created",
@@ -26,9 +30,6 @@ void LogToFile::log(std::string classId, std::string methodId, LOG_LEVEL level, 
     writeLog(classId + "." + methodId + " " + str, level, true, false);
 }
 
-void LogToFile::saveToFile() {
-    writeLog("Log file closed", static_cast<LOG_LEVEL>(NULL), true, true);
-}
 
 void LogToFile::writeLog(std::string str, LOG_LEVEL level, bool withCheck, bool withClose) {
     if (withCheck && logFile.is_open()) {
@@ -45,3 +46,5 @@ void LogToFile::writeLog(std::string str, LOG_LEVEL level, bool withCheck, bool 
 std::string LogToFile::fetchLogLevel(LOG_LEVEL level) {
     return (level == NULL || level == INFO ? "INFO " : (level == WARNING ? "WARNING " : "SEVERE "));
 }
+
+
