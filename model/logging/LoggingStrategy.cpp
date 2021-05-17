@@ -21,3 +21,7 @@ void LoggingStrategy::log(std::string str) {
 void LoggingStrategy::log(std::string classId, std::string methodId, LOG_LEVEL level, std::string str) {
     logging->log(classId, methodId, level, str);
 }
+
+LoggingStrategy::~LoggingStrategy() {
+    delete logging;
+}

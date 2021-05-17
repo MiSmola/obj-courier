@@ -52,10 +52,6 @@ public:
      */
     virtual void log(std::string classId, std::string methodId, LOG_LEVEL level, std::string str);
 
-    /**
-     * Metoda zakonczenia logowania i zamkniecia pliku
-     */
-    void saveToFile();
 
 };
 

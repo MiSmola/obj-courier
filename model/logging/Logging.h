@@ -25,6 +25,7 @@ public:
      * @param str Przekazana informacja, w tym przypadku o czasie
      */
     virtual void log(std::string classId, std::string methodId, LOG_LEVEL level, std::string str);
+
 };
 
 
