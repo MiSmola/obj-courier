@@ -38,7 +38,7 @@ The program utilizes the following data structures:
 - **`List`**: Singly linked list implemented using a template type.
 
 ### Program structure diagram
-![Program Structure Diagram](doc/Program_structure.tif)
+![Program Structure Diagram](doc/Program_structure.png)
 ---
 
 ## Algorithm
