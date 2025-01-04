@@ -4,7 +4,7 @@
 
 This program is designed to find the most optimal route for a courier. Based on an input file, it validates the data and reads information about connections between clients, the type of connection (one-way or two-way), and their costs. Using an implemented algorithm, it calculates all possible routes and selects the one with the lowest cost. The result, including the route, its cost, and the generation date, is saved to a `.txt` file. The program supports both single and batch execution modes.
 
-Project created as a project on Computer Programming laboratory on Silesian University of Technology.
+Program created as a project on Computer Programming laboratory on Silesian University of Technology.
 
 ---
 
